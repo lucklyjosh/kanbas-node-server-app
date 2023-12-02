@@ -17,10 +17,10 @@ mongoose.connect(CONNECTION_STRING);
 
 
 app.use(
-    cors({
-      credentials: true,
-      origin: '*',
-    })
+    cors(
+    //   credentials: true,
+    //   origin: '*',
+    )
    );
    
 CourseRoutes(app);
