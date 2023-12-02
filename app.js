@@ -18,7 +18,7 @@ mongoose.connect(CONNECTION_STRING);
 
 app.use(cors({
     credentials: true,
-    origin: process.env.FRONTEND_URL
+    origin: 'https://a6--zesty-snickerdoodle-1cad7a.netlify.app/'
 }));
 
 CourseRoutes(app);
