@@ -17,11 +17,11 @@ mongoose.connect(CONNECTION_STRING);
 
 
 app.use(
-    cors(
-    //   credentials: true,
-    //   origin: '*',
+    cors({      credentials: true,
+        origin: 'https://a6--zesty-snickerdoodle-1cad7a.netlify.app'}
+
     )
-   );
+    );
    
 CourseRoutes(app);
 
