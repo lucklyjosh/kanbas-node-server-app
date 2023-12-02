@@ -16,28 +16,28 @@ const app = express();
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/kanbas'
 mongoose.connect(CONNECTION_STRING);
 
-const allowedOrigins = [
-    'http://localhost:3000',
-    'https://a6--zesty-snickerdoodle-1cad7a.netlify.app'
-  ];
+// const allowedOrigins = [
+//     'http://localhost:3000',
+//     'https://a6--zesty-snickerdoodle-1cad7a.netlify.app'
+//   ];
   
-  app.use(cors({
-    credentials: true,
-    origin: function(origin, callback){
-      // allow requests with no origin (like mobile apps, curl requests)
-      if(!origin) return callback(null, true);
-      if(allowedOrigins.indexOf(origin) === -1){
-        var msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-        return callback(new Error(msg), false);
-      }
-      return callback(null, true);
-    }
-  }));
-  
-// app.use(cors({
+//   app.use(cors({
 //     credentials: true,
-//     origin: 'https://a6--zesty-snickerdoodle-1cad7a.netlify.app'
-// }));
+//     origin: function(origin, callback){
+//       // allow requests with no origin (like mobile apps, curl requests)
+//       if(!origin) return callback(null, true);
+//       if(allowedOrigins.indexOf(origin) === -1){
+//         var msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+//         return callback(new Error(msg), false);
+//       }
+//       return callback(null, true);
+//     }
+//   }));
+  
+app.use(cors({
+    credentials: true,
+    origin: 'https://a6--zesty-snickerdoodle-1cad7a.netlify.app'
+}));
 
 CourseRoutes(app);
 
